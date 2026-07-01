@@ -10,25 +10,24 @@ public class Juego {
     public void iniciarJuego() {
 
         tablero = new Tablero(11, 15);
-        tablero.generarTablero(); // [cite: 104]
-        tablero.agregarMuros();    // [cite: 106]
-        tablero.agregarPuntos();   // [cite: 108]
-        tablero.agregarPoderes();  // [cite: 110]
-
+        tablero.generarTablero();
+        tablero.agregarMuros();
+        tablero.agregarPuntos();
+      
         jugador = new Jugador("Pac-Man", 1, 2);
 
-        generarEnemigos(3); // Creamos 3 fantasmas [cite: 172]
+        generarEnemigos(3);
 
-        juegoTerminado = false; // [cite: 17]
+        juegoTerminado = false;
 
         System.out.println("¡Juego Inicializado con Éxito!");
     }
 
     public void generarEnemigos(int cantidad) {
         enemigos = new Enemigo[cantidad]; // [cite: 15, 176]
-        enemigos[0] = new Enemigo("Perseguidor", 3, 5); // [cite: 82]
-        enemigos[1] = new Enemigo("Aleatorio", 5, 7);   // [cite: 84]
-        enemigos[2] = new Enemigo("Fantasma", 7, 9);    // [cite: 86]
+        enemigos[0] = new Enemigo("Perseguidor", 3, 5);
+        enemigos[1] = new Enemigo("Aleatorio", 5, 7);
+        enemigos[2] = new Enemigo("Fantasma", 7, 9);
     }
 
     public void actualizarTablero() {
@@ -52,7 +51,7 @@ public class Juego {
     }
 
     public void mostrarEstado() {
-        jugador.mostrarEstado(); // [cite: 57]
+        jugador.mostrarEstado();
     }
 
     public void ejecutarTurno() {
@@ -99,7 +98,7 @@ public class Juego {
     public void verificarFinJuego() {
         if (!jugador.estaVivo()) {
             juegoTerminado = true;
-            System.out.println("\n💀 ¡GAME OVER! Los fantasmas te atraparon. 💀");
+            System.out.println("\n ¡GAME OVER! Los fantasmas te atraparon. ");
             return;
         }
 
@@ -116,7 +115,7 @@ public class Juego {
 
         if (!quedanPuntos) {
             juegoTerminado = true;
-            System.out.println("\n🏆 ¡FELICIDADES! Has recolectado todos los puntos del tablero. 🏆");
+            System.out.println("\n Has recolectado todos los puntos del tablero. ");
         }
     }
 
