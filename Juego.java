@@ -24,7 +24,7 @@ public class Juego {
     }
 
     public void generarEnemigos(int cantidad) {
-        enemigos = new Enemigo[cantidad]; // [cite: 15, 176]
+        enemigos = new Enemigo[cantidad];
         enemigos[0] = new Enemigo("Perseguidor", 3, 5);
         enemigos[1] = new Enemigo("Aleatorio", 5, 7);
         enemigos[2] = new Enemigo("Fantasma", 7, 9);
@@ -45,7 +45,7 @@ public class Juego {
         }
 
         System.out.println("\n=================================");
-        tablero.mostrarTablero(); // [cite: 112]
+        tablero.mostrarTablero();
         System.out.println("=================================");
         matrizMapa[jugador.getFila()][jugador.getColumna()] = charOriginalJugador;
     }
