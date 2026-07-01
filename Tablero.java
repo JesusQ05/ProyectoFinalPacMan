@@ -5,9 +5,11 @@ public class Tablero {
     private char[][] matriz;
     private Muro[] muros;
     private Punto[] puntos;
+    private Poder[] poderes;
 
     private int contadorMuros = 0;
     private int contadorPuntos = 0;
+    private int contadorPoderes = 0;
 
     public Tablero(int filas, int columnas) {
         this.filas = filas;
@@ -17,6 +19,7 @@ public class Tablero {
         int totalCasilleros = filas * columnas;
         this.muros = new Muro[totalCasilleros];
         this.puntos = new Punto[totalCasilleros];
+        this.poderes = new Poder[10];
     }
 
     public void generarTablero() {
@@ -54,6 +57,26 @@ public class Tablero {
         }
     }
 
+    public void agregarPoderes() {
+        if (matriz[1][1] == '.') {
+            matriz[1][1] = 'O';
+            poderes[contadorPoderes] = new Poder(1, 1, "Velocidad", 5);
+            contadorPoderes++;
+        }
+
+        if (matriz[filas - 2][columnas - 2] == '.') {
+            matriz[filas - 2][columnas - 2] = 'O';
+            poderes[contadorPoderes] = new Poder(filas - 2, columnas - 2, "Congelar", 4);
+            contadorPoderes++;
+        }
+
+        if (matriz[1][columnas - 2] == '.') {
+            matriz[1][columnas - 2] = 'O';
+            poderes[contadorPoderes] = new Poder(1, columnas - 2, "Salud", 1);
+            contadorPoderes++;
+        }
+    }
+
     public void mostrarTablero() {
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
@@ -72,7 +95,6 @@ public class Tablero {
         if (matriz[fila][columna] == '#') {
             return false;
         }
-
         return true;
     }
 
