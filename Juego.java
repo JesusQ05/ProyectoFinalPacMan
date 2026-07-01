@@ -13,7 +13,8 @@ public class Juego {
         tablero.generarTablero();
         tablero.agregarMuros();
         tablero.agregarPuntos();
-      
+        tablero.agregarPoderes();
+        
         jugador = new Jugador("Pac-Man", 1, 2);
 
         generarEnemigos(3);
